@@ -1,0 +1,222 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    /* Styles pour la barre de navigation */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none; /* Enlève le soulignement des liens */
+}
+
+.nav-links a, .nav-item {
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px; /* Espace entre les liens */
+    font-size: 16px;
+}
+
+.nav-links a:hover, .nav-item:hover {
+    color: #007bff; /* Couleur au survol */
+}
+
+.recherche, .filtres, .logements, .populaires {
+    margin: 20px;
+}
+
+.recherche input, .recherche button, .filtres button {
+    /* Styles pour la barre de recherche, le bouton, et les boutons de filtres */
+}
+
+.logements {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.logement, .populaire {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    width: calc(33.333% - 20px); /* Ajustez la largeur en fonction de l'espace entre les éléments */
+}
+
+.logement img, .populaire img {
+    width: 100%;
+    height: auto;
+}
+
+.etoiles {
+    /* Styles pour les étoiles, utilisez des caractères ou des images selon le cas */
+}
+
+footer {
+    background-color: #f2f2f2;
+    /* Autres styles pour le pied de page */
+}
+
+/* Réponses aux médias pour le design réactif */
+@media (max-width: 768px) {
+    .logement, .populaire {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .logement, .populaire {
+        width: 100%;
+    }
+}
+.logo img {
+    width: 61px;
+    height: 29px;
+}
+.search-bar {
+    display: flex;
+    align-items: center; /* Cette propriété est ajoutée pour centrer verticalement les enfants dans la barre de recherche */
+    width: 442px;
+    height: 49px;
+    margin: 10px;
+    margin-left: 3%; /* Ajoute un peu d'espace en haut et en bas, et centre horizontalement */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.search-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 49px;
+    background-color: #f2f2f2;
+}
+
+.search-icon-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#search-input {
+    flex-grow: 1;
+    border: none;
+    padding: 0 10px; /* Ajusté pour enlever le padding à gauche et pour donner un padding à droite */
+    font-size: 16px;
+    line-height: 49px; /* Assurez-vous que la hauteur de ligne correspond à la hauteur de la barre pour centrer le texte */
+    margin: 0;
+}
+
+#search-button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0 20px; /* Padding ajusté */
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 49px; /* Assurez-vous que la hauteur de ligne correspond à la hauteur de la barre pour centrer le texte */
+}
+
+/* Reste du CSS inchangé */
+
+/* Style pour la barre de recherche */
+#rechercheInput {
+    /* Ajoutez les styles CSS pour la barre de recherche ici */
+    /* Par exemple, vous pouvez définir la largeur, la hauteur, la police, etc. */
+    width: 200px; /* Exemple de largeur */
+    height: 30px; /* Exemple de hauteur */
+    font-family: 'Raleway'; /* Exemple de police */
+    font-size: 16px; /* Exemple de taille de police */
+    border: 1px solid #F2F2F2; /* Exemple de bordure grise */
+    border-radius: 15px; /* Exemple de bordure arrondie */
+  }
+  
+  /* Vous pouvez également ajouter d'autres styles spécifiques à la barre de recherche ici */
+  .search-filters {
+    display: flex;
+    justify-content: center; /* Centrer les boutons horizontalement */
+    gap: 10px; /* Ajoute un espace entre les boutons */
+    padding: 10px 0; /* Ajoute de l'espace au-dessus et en dessous des boutons */
+}
+
+.filter-button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Arrondi les bords pour les boutons */
+    background-color: #f8f8f8; /* Couleur de fond pour les boutons désélectionnés */
+    cursor: pointer;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+}
+
+.filter-button:hover {
+    background-color: #e9e9e9; /* Un peu plus sombre au survol */
+}
+
+.filter-button.active {
+    background-color: #0056b3; /* Couleur de fond pour le bouton sélectionné */
+    color: white; /* Texte blanc pour le bouton sélectionné */
+}
+.search-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.filter-button {
+    display: flex; /* Pour aligner l'image et le texte */
+    align-items: center; /* Centre verticalement l'image et le texte dans le bouton */
+    gap: 5px; /* Espace entre l'image et le texte */
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+}
+
+.filter-button img {
+    width: 22px; /* Largeur du pictogramme */
+    height: 16.26px; /* Hauteur du pictogramme */
+}
+
+.filter-button:hover {
+    background-color: #e9e9e9;
+}
+
+.filter-button.active {
+    background-color: #0056b3;
+    color: white;
+}
+.accommodations-header {
+    display: flex;
+    align-items: center; /* Centre verticalement le vecteur et le texte */
+    gap: 10px; /* Espace entre le vecteur et le texte */
+    font-size: 16px; /* Ajustez la taille de police selon vos besoins */
+    color: #333;
+    margin: 10px 0; /* Ajustez la marge extérieure selon vos besoins */
+}
+
+.header-vector {
+    width: 24px; /* Largeur du vecteur */
+    height: 24px; /* Hauteur du vecteur */
+}
