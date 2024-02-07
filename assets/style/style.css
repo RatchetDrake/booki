@@ -22,6 +22,7 @@ header {
     font-weight: bold;
     color: #333;
     text-decoration: none; /* Enlève le soulignement des liens */
+    margin-left: 2%;
 }
 
 .nav-links a, .nav-item {
@@ -33,6 +34,27 @@ header {
 
 .nav-links a:hover, .nav-item:hover {
     color: #007bff; /* Couleur au survol */
+}
+.nav-item {
+    position: relative; /* Nécessaire pour positionner le pseudo-élément par rapport à cet élément */
+    padding-top: 10px; /* Espace pour le trait au-dessus */
+    /* Reste du style */
+}
+
+.nav-item::before {
+    content: ''; /* Le pseudo-élément doit avoir un contenu, même vide */
+    position: absolute;
+    top: 0; /* Aligné en haut de l'élément .nav-item */
+    left: 50%; /* Centrer le trait */
+    transform: translateX(-50%); /* Centrer le trait correctement */
+    width: 100%; /* Correspond à la largeur du lien */
+    height: 3px; /* Hauteur du trait */
+    background-color: #007bff; /* Couleur du trait */
+    display: none; /* Le trait est initialement caché */
+}
+
+.nav-item.active::before {
+    display: block; /* Le trait devient visible pour l'élément actif */
 }
 
 .recherche, .filtres, .logements, .populaires {
@@ -60,10 +82,6 @@ header {
     height: auto;
 }
 
-.etoiles {
-    /* Styles pour les étoiles, utilisez des caractères ou des images selon le cas */
-}
-
 footer {
     background-color: #f2f2f2;
     /* Autres styles pour le pied de page */
@@ -85,6 +103,13 @@ footer {
     width: 61px;
     height: 29px;
 }
+
+.search-section h1 {
+    margin-left: 3%;
+}
+.search-section p {
+    margin-left: 3%;
+}
 .search-bar {
     display: flex;
     align-items: center; /* Cette propriété est ajoutée pour centrer verticalement les enfants dans la barre de recherche */
@@ -93,8 +118,10 @@ footer {
     margin: 10px;
     margin-left: 3%; /* Ajoute un peu d'espace en haut et en bas, et centre horizontalement */
     border: 1px solid #ccc;
-    border-radius: 4px;
-    overflow: hidden;
+    border-right: none;
+     border-bottom-right-radius: 20%;
+     border-top-right-radius: 20%;
+  
     background-color: #fff;
 }
 
@@ -119,6 +146,7 @@ footer {
     font-size: 16px;
     line-height: 49px; /* Assurez-vous que la hauteur de ligne correspond à la hauteur de la barre pour centrer le texte */
     margin: 0;
+    
 }
 
 #search-button {
@@ -129,7 +157,10 @@ footer {
     padding: 0 20px; /* Padding ajusté */
     cursor: pointer;
     font-size: 16px;
-    line-height: 49px; /* Assurez-vous que la hauteur de ligne correspond à la hauteur de la barre pour centrer le texte */
+    line-height: 49px;
+     /* Assurez-vous que la hauteur de ligne correspond à la hauteur de la barre pour centrer le texte */
+     border-top-right-radius: 20%;
+     border-bottom-right-radius: 20%;
 }
 
 /* Reste du CSS inchangé */
@@ -146,12 +177,23 @@ footer {
     border-radius: 15px; /* Exemple de bordure arrondie */
   }
   
-  /* Vous pouvez également ajouter d'autres styles spécifiques à la barre de recherche ici */
-  .search-filters {
+  .filters-section {
     display: flex;
-    justify-content: center; /* Centrer les boutons horizontalement */
-    gap: 10px; /* Ajoute un espace entre les boutons */
-    padding: 10px 0; /* Ajoute de l'espace au-dessus et en dessous des boutons */
+    align-items: center; /* Alignement vertical des enfants */
+    gap: 10px; /* Espace entre le titre et le groupe de boutons */
+    margin-left: 3%;
+}
+
+.filter-title {
+    font-weight: bold;
+    font-size: 16px; /* Taille de la police pour le titre */
+    /* Pas besoin de margin-bottom car les éléments sont dans une flexbox */
+}
+
+.search-filters {
+    display: flex;
+    gap: 10px;
+    /* Le reste du style reste inchangé */
 }
 
 .filter-button {
@@ -219,4 +261,283 @@ footer {
 .header-vector {
     width: 24px; /* Largeur du vecteur */
     height: 24px; /* Hauteur du vecteur */
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 3%;
+    align-items: center; /* Alignement vertical des éléments */
+    
+    justify-content: space-between;
+    
+}
+.I{display: flex;
+    margin: 2%;
+    align-items: center; /* Alignement vertical des éléments */
+
+}
+.I img{
+    padding-right: 0.5%;
+}
+
+.accommodations {
+    /* Assurez-vous que cette section n'a pas de largeur fixe qui pourrait limiter ses enfants */
+    padding: 20px; /* Ajoute du padding pour un peu d'espace intérieur */
+    margin-left: 0%;
+    background-color: #f2f2f2;
+    border-radius: 5%;
+    width: 50%;
+    align-content: center;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante si nécessaire */
+    justify-content: space-around; /* Espacement autour des éléments */
+    gap: 20px; /* Espace entre les éléments */
+    width: 100%;
+    
+}
+
+.card {
+    flex: 1; /* Les cartes peuvent grandir */
+    min-width: 246px; /* Largeur minimale pour chaque carte */
+    max-width: 246px; /* Largeur maximale pour empêcher les cartes de devenir trop grandes */
+    border: 1px solid #ccc;
+    align-content: center;
+    border-radius: 10px;
+    overflow: hidden; /* Cache le contenu qui dépasse */
+    margin-bottom: 20px; /* Espace au-dessous de chaque carte */
+    background-color: #f2f2f2; /* Couleur de fond des cartes */
+}
+
+.card img {
+    width: 246px; /* L'image prend la largeur totale de la carte */
+    height: 124px; /* Hauteur automatique pour maintenir le ratio */
+    border-radius: 10px 10px 0 0; /* Arrondit les coins supérieurs */
+}
+
+.card h3, .card p {
+    /* Ajoute un peu d'espace autour du texte */
+    margin: auto;
+    margin-left: 5%;
+
+}
+
+.stars {
+   margin-left: 5%;
+   margin-bottom: 5%;
+    display: flex; /* Affiche les étoiles en ligne */
+    justify-content: flex-start; /* Alignement des étoiles à gauche */
+}
+
+
+.show-more {
+    background-color: #f8f8f8; /* Couleur du bouton "Afficher plus" */
+    border: none;
+    cursor: pointer;
+    margin-left: 5%;
+}
+
+/* Vous pouvez ajouter des styles pour :hover et :active pour .show-more ici */
+
+/* Ajoutez des requêtes media pour rendre la mise en page réactive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .accommodations, .popular {
+        width: 100%;
+    }
+}
+
+/* Autres requêtes media pour les ajustements nécessaires */
+.stars {
+    display: flex; /* Aligner les étoiles horizontalement */
+}
+
+/* Styles communs pour les étoiles */
+.stars img {
+    width: 12px; /* ou la taille exacte que vous voulez */
+    height: auto;
+}
+#stars{
+    display: flex;
+    margin-left: 10%;
+}
+#stars img {
+    width: 12px; /* ou la taille exacte que vous voulez */
+    height: 12px;
+   
+
+}
+
+/* Réinitialisez les styles si nécessaire pour la section Les plus populaires */
+.popular .stars img {
+    width: 22px; /* Assurez-vous que cette taille est la même que celle définie globalement */
+   
+}
+
+.popular {
+    /* Styles supplémentaires si nécessaires */
+    background-color: #f2f2f2;
+    width: 420px;
+    border-radius: 10px;
+    align-content: center;
+    margin: 2%;
+    height:50em ;
+}
+
+.popular h2 {
+    /* Styles pour le titre "Les plus populaires" */
+    margin-left: 6%;
+    margin-top: 5%;
+}
+
+.popular-cards {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.popular-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #fff; /* Ou toute autre couleur de fond appropriée */
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    height: auto;
+    width: auto;
+    margin: 22px;
+
+     /* Arrondit les coins de la carte */
+}
+
+.popular-card img{
+    width: 137px; /* Largeur fixe pour l'image */
+    height: 144px; /* Hauteur fixe pour l'image */
+    border-top-left-radius: 10px; /* Arrondit le coin supérieur gauche de l'image */
+    border-bottom-left-radius: 10px; /* Arrondit le coin inférieur gauche de l'image */
+    object-fit: cover; /* S'assure que l'image couvre l'espace défini */
+}
+
+.popular-card-content {
+    padding: 10px;
+    flex-grow: 1; /* Permet au contenu de remplir l'espace restant */
+}
+.popular-card h3,p{
+    margin-left: 10%;
+
+}
+.popular-header {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+h2 {
+    /* Styles pour le titre "Les plus populaires" */
+}
+
+.popular-vector {
+    position: absolute;
+    right: 0; /* Aligné à droite du conteneur .popular-header */
+    height: 16px; /* Hauteur automatique pour maintenir le ratio */
+    width: 18px; /* Largeur spécifique pour le vecteur */
+    /* Ajustez la position top ou bottom si nécessaire pour l'aligner avec le texte */
+    margin-right: 5%;
+}
+.stars{
+}
+.activities h2 {
+margin-left: 3%;
+    /* Styles pour la section des activités */
+}
+.activities {
+    /* Assurez-vous que cette section n'a pas de largeur fixe qui pourrait limiter ses enfants */
+    margin: 0 auto; /* Centre la section si nécessaire */
+    padding: 20px; /* Ajoutez du padding pour un peu d'espace intérieur */
+}
+
+.activity-cards {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante si nécessaire */
+    justify-content: space-around; /* Espacement autour des éléments */
+    gap: 20px; /* Espace entre les éléments */
+}
+
+.activity-card {
+    flex: 1; /* Les cartes peuvent grandir */
+    min-width: 250px; /* Largeur minimale pour chaque carte */
+    max-width: 302px; /* Largeur maximale pour empêcher les cartes de devenir trop grandes */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden; /* Cache le contenu qui dépasse */
+    margin-bottom: 20px; /* Espace au-dessous de chaque carte */
+}
+
+.activity-card img {
+    width: 100%; /* L'image prend la largeur totale de la carte */
+    height: 400px; /* Hauteur automatique pour maintenir le ratio */
+    border-radius: 10px 10px 0 0; /* Arrondit les coins supérieurs */
+}
+
+.activity-card h3 {
+    text-align: center; /* Centre le titre dans la carte */
+    padding: 10px; /* Ajoute un peu d'espace autour du texte */
+}
+
+
+footer {
+    background-color: #f2f2f2;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    margin: 2%;
+}
+
+.footer-sections {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+.hidden{
+    visibility: hidden; /* Caché mais occupe de l'espace */
+    opacity: 0; /* Rend l'élément transparent */
+  }
+
+  @media only screen and (max-width: 768px) {
+    /* Conteneurs et éléments flexibles pour s'adapter à la largeur */
+    .container, .cards, .activity-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Assurez-vous que tous les éléments s'adaptent à la largeur de l'écran */
+    * {
+        max-width: 100%;
+    }
 }
